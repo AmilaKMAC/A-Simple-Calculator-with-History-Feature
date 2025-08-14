@@ -1,9 +1,9 @@
 def add(a, b):
     return a + b
-  
+
 def subtract(a, b):
     return a - b
-  
+
 def multiply(a, b):
     return a * b
 
@@ -12,7 +12,6 @@ def divide(a, b):
     try:
         result = a / b
         return result
-    
     except ZeroDivisionError:
         print("float division by zero")
         return None
@@ -20,7 +19,7 @@ def divide(a, b):
 
 def power(a, b):
     return a ** b
-  
+
 def remainder(a, b):
     return a % b
 
@@ -34,17 +33,17 @@ def history():
     else:
         print("No past calculations to show")
 
-  
+
 def select_op(choice):
     global last_calculation
     if choice == '#':
         return -1
     elif choice == '$':
         return 0
-  
+
     elif choice == '?':
         history()
-        
+
     elif choice in ('+', '-', '*', '/', '^', '%'):
         while True:
             num1s = input("Enter first number: ")
@@ -53,14 +52,14 @@ def select_op(choice):
                 return 0
             if num1s.endswith('#'):
                 return -1
-                
+
             try:
                 num1 = float(num1s)
                 break
             except:
                 print("Not a valid number, please enter again")
                 continue
-    
+
         while True:
             num2s = input("Enter second number: ")
             print(num2s)
@@ -68,13 +67,13 @@ def select_op(choice):
                 return 0
             if num2s.endswith('#'):
                 return -1
-            try:  
+            try:
                 num2 = float(num2s)
                 break
             except:
                 print("Not a valid number, please enter again")
                 continue
-    
+
         result = 0.0
         if choice == '+':
             result = add(num1, num2)
@@ -91,7 +90,7 @@ def select_op(choice):
         else:
             print("Something Went Wrong")
             return None
-      
+
         if result is not None:
             last_calculation = "{0} {1} {2} = {3}".format(num1, choice, num2, result)
             calculation_history.append(last_calculation)  # Add last_calculation to calculation_history
@@ -101,11 +100,11 @@ def select_op(choice):
             calculation_history.append(last_calculation)  # Add last_calculation to calculation_history
             print(last_calculation)
 
-    
+
     else:
         print("Unrecognized operation")
-    
-    
+
+
 while True:
     print("Select operation.")
     print("1.Add      : + ")
@@ -117,7 +116,7 @@ while True:
     print("7.Terminate: # ")
     print("8.Reset    : $ ")
     print("8.History  : ? ")
-  
+
     # take input from the user
     choice = input("Enter choice(+,-,*,/,^,%,#,$,?): ")
     print(choice)
